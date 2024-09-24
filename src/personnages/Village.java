@@ -28,5 +28,7 @@ public class Village {
 		return nom;
 	}
 	
-	
+	public static void main() {
+		
+	}
 }
