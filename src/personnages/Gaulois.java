@@ -24,7 +24,12 @@ public class Gaulois {
 	
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		romain.recevoirCoup(force / 3);
+		romain.recevoirCoup((force / 3) * effetPotion);
+	}
+	
+	public void boirePotion(int potionForce) {
+		parler("Merci Druide, je sens que ma force est " + potionForce + " fois décuplée.");
+		effetPotion = potionForce;
 	}
 	
 	@Override
@@ -39,6 +44,8 @@ public class Gaulois {
 		System.out.println(kevinix);
 		System.out.println("Création du romain");
 		Romain alexandrus = new Romain("Alexandrus", 10);
+		kevinix.frapper(alexandrus);
+		kevinix.boirePotion(4);
 		kevinix.frapper(alexandrus);
 	}
 }
