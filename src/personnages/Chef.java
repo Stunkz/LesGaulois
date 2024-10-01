@@ -31,7 +31,7 @@ public class Chef {
 	public static void main(String[] args) {
 		System.out.println("Création du chef");
 		System.out.println("Création du romain");
-		Village paulsab = new Village("Paul Sabatier");
+		Village paulsab = new Village("Paul Sabatier", 5);
 		Chef rey = new Chef("Jerome Rey", 1000000, paulsab);
 		rey.parler("L'administration romaine a peur de moi !");
 		Romain alexandre = new Romain("Alexandre", 1);
