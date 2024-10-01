@@ -3,7 +3,7 @@ package personnages;
 public class Romain {
 	private String nom;
 	private int force;
-	private Equipement[] equipements;
+	private Equipement[] equipements = new Equipement[MAXEQUIPEMENT];
 	private int nbEquipement = 0;
 	
 	private static final int MAXEQUIPEMENT = 2;
@@ -12,9 +12,6 @@ public class Romain {
 		this.nom = nom;
 		this.force = force;
 		assert isForcePositive();
-		
-		this.equipements = new Equipement[2];
-		assert isFullyEquipped();
 	}
 	
 	public String getNom() {
@@ -29,17 +26,17 @@ public class Romain {
 		return "Le romain " + nom + " : ";
 	}
 	
-	private Boolean isForcePositive() {
+	private boolean isForcePositive() {
 		return force > 0;
 	}
 
 	public void recevoirCoup(int forceCoup) {
 		// Precondition
-		assert isForcePositive();
 		
 		int forceDebut = force;
 		
 		force -= forceCoup;
+		assert isForcePositive();
 		
 		if (force > 0) {
 			parler("Aïe");
@@ -70,12 +67,12 @@ public class Romain {
 		assert isFullyEquipped();
 	}
 	
-	private Boolean isFullyEquipped() {
+	private boolean isFullyEquipped() {
 		return nbEquipement <= MAXEQUIPEMENT;
 	}
 	
-	private Boolean isAlreadyEquipped(Equipement equipementToCheck) {
-		Boolean returnValue = false;
+	private boolean isAlreadyEquipped(Equipement equipementToCheck) {
+		boolean returnValue = false;
 		int nbEquipement = 0;
 		
 		while (nbEquipement < MAXEQUIPEMENT) {
